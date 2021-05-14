@@ -6,8 +6,8 @@
 |   2  | Image Verification            |         3         |                                   | :heavy_check_mark:    |
 |   3  | Let's Connect                 |         3         |                                   | :heavy_check_mark:    |
 |   4  | RAM Acquisition Time          |         3         |                                   | :heavy_check_mark:    |
-|   5  | Chrome Connection             |         6         |                                   | :x:                   |
-|   6  | Hash Hash Baby                |         6         |                                   | :x:                   |
+|   5  | Chrome Connection             |         6         |                                   | :heavy_check_mark:    |
+|   6  | Hash Hash Baby                |         6         |                                   | :heavy_check_mark:    |
 |   7  | Offset Select                 |         6         |                                   | :x:                   |
 |   8  | Process Parents Please        |         6         |                                   | :x:                   |
 |   9  | Finding Filenames             |         9         |                                   | :x:                   |
@@ -76,8 +76,6 @@ flag= <!-- 9db01b1e7b19a3b2113bfb65e860fffd7a1630bdf2b18613d206ebf2aa0ea172 -->
 
 
 
-
-
 # 3- Let's Connect 
 ***
 ![Let's Connect](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Let's%20Connect.PNG)
@@ -108,10 +106,6 @@ Flag= <!-- 10 -->
 
 
 
-
-
-
-
 # 4- RAM Acquisition Time 
 ***
 ![RAM Acquisition Time](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20RAM%20Acquisition%20Time.PNG)
@@ -130,10 +124,6 @@ Flag= <!-- 2021-04-30 17:52:19 -->
 
 
 
-
-
-
-
 # 5- Chrome Connection
 ***
 ![Chrome Connection](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Chrome%20Connection.PNG)
@@ -148,11 +138,50 @@ Pour ce faire, nous pouvons utiliser l'un des deux plugins: `windows.netscan`, `
 ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Publique%20IP.png)
 
 Sur la figure ci-dessus, nous remarquons que `chrome.exe` essaie d'établir une connexion avec l'IP publique `185.70.41.130`  sur le port 443.
-L'objectif est donc de retrouver le domaine correspondant à cette IP. La technique la plus simple et évidente est d'ouvrir notre navigateur et de se rendre sur `https://185.70.41.130`; une résolution de nom est effectuée et l'on retrouver bien `https://mail.protonmail.com/login` duquel on retire le domaine.  
+L'objectif est donc de retrouver le domaine correspondant à cette IP. La technique la plus simple et évidente est d'ouvrir notre navigateur et de se rendre sur `https://185.70.41.130`; une résolution de nom est effectuée et l'on retrouve `https://mail.protonmail.com/login` duquel on retire le domaine.  
 
 <!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Chrome%20Connection.png) -->
 
 Flag= <!-- mail.protonmail.com -->
+
+
+
+
+# 6- Hash Hash Baby 
+***
+![Hash Hash Baby](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Hash%20Hash%20Baby.PNG)
+
+Nous allons afficher les informations des processus en cours d'exécution lors du dump de la mémoire RAM et s'intéresser au processus de PID `6988`, si il existe! 
+Pour ce faire, nous pouvons utiliser l'un des trois plugins: `windows.pslist`, `windows.psscan` ou `windows.pstree`. 
+
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.pslist | grep 6988
+```
+
+![Grep processus de PID 6988](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/grep%20PID%206988.png)
+
+Nous pouvons enfin dumper le processus de PID `6988` avec la commade ci-dessous.
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.pslist --pid 6988 --dump 
+```
+
+![Dump processus de PID 6988](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Processus%20PID.png)
+
+Il nous reste plus qu'à hasher le fichier dumpé `pid.6988.0x1c0000.dmp` avec l'algorithme MD5. Pour ce faire, plusieurs techniques et outils existent mais nous allons utiliser l'outil `md5sum` installé par défaut sur Kali Linux.  
+
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# md5sum pid.6988.0x1c0000.dmp
+```
+
+<!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Hash%20Hash%20Baby.png) -->
+
+Flag= <!-- 0b493d8e26f03ccd2060e0be85f430af -->
+
+
+
 
 
 
