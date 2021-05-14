@@ -8,7 +8,7 @@
 |   4  | RAM Acquisition Time          |         3         | Imagination, Volatility 3              | :heavy_check_mark:    |
 |   5  | Chrome Connection             |         6         | Imagination, Volatility 3              | :heavy_check_mark:    |
 |   6  | Hash Hash Baby                |         6         | Imagination, Volatility 3, MD5SUM      | :heavy_check_mark:    |
-|   7  | Offset Select                 |         6         | Imagination, Volatility 3              | :x:                   |
+|   7  | Offset Select                 |         6         | Imagination, HxD                       | :x:                   |
 |   8  | Process Parents Please        |         6         | Imagination, Volatility 3              | :x:                   |
 |   9  | Finding Filenames             |         9         | Imagination, Volatility 3              | :x:                   |
 |  10  | Hocus Focus                   |         9         | Imagination, Volatility 3              | :x:                   |
@@ -185,6 +185,27 @@ Ici, nous faisons le choix de l'outil `md5sum` installé par défaut sur Kali Li
 
 Flag= <!-- 0b493d8e26f03ccd2060e0be85f430af -->
 
+
+
+
+
+# 7- Offset Select 
+***
+![Offset Select](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Offset%20Select.PNG)
+
+Nous allons avoir besoin d'un outil qui nous permet d'afficher la correspondance  Hexadecimal - ASCII. Pour cela, plusieurs outils existent mais nous allons préférer utiliser l'outil graphique `HxD`. 
+* a- Charger le dump mémoire `20210430-Win10Home-20H2-64bit-memdump.mem` et faire `Rechercher` > `Atteindre` > Coller la chaine `"45BE876"` > `Ok`  
+
+![HxD 01](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/HxD%2001.png)
+
+![HxD 02](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/HxD%2002.png)
+
+
+* b- Lire le debut de notre offset `"45BE87"`en hexaxadécimal à gauche et sélectionner la chaine "68 61 63 6B 65 72" correspondante pour voir surligner le flag à droite.
+
+<!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Offset%20Select.png) -->
+
+Flag= <!-- hacker -->
 
 
 
