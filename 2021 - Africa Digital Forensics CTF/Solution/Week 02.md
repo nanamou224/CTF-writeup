@@ -1,8 +1,10 @@
 ## Week 2 (May 10 - 16) : RAM Image Analysis   
+:*:\check::✅
+:*:\cross::❌
 
 |  N°  | Intitulé du challenges        | Nombre de points  |      Outils utilisés              |
 | -----| ------------------------------|:-----------------:| ---------------------------------:|
-|   1  | Be Brave                      |         3         |                                   |
+|   1  | Be Brave                      |         3         |                                   | \check
 |   2  | Image Verification            |         3         |                                   |
 |   3  | Let's Connect                 |         3         |                                   |
 |   4  | RAM Acquisition Time          |         3         |                                   |
