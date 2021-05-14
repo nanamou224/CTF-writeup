@@ -4,8 +4,8 @@
 | -----| ------------------------------|:-----------------:| ---------------------------------:| ---------------------:|
 |   1  | Be Brave                      |         3         | Volatility 3                      | :heavy_check_mark:    |
 |   2  | Image Verification            |         3         |                                   | :heavy_check_mark:    |
-|   3  | Let's Connect                 |         3         |                                   | :x:                   |
-|   4  | RAM Acquisition Time          |         3         |                                   | :x:                   |
+|   3  | Let's Connect                 |         3         |                                   | :heavy_check_mark:    |
+|   4  | RAM Acquisition Time          |         3         |                                   | :heavy_check_mark:    |
 |   5  | Chrome Connection             |         6         |                                   | :x:                   |
 |   6  | Hash Hash Baby                |         6         |                                   | :x:                   |
 |   7  | Offset Select                 |         6         |                                   | :x:                   |
@@ -52,7 +52,7 @@ Pour ce faire, nous pouvons utiliser l'un des trois plugins: `windows.pslist`, `
 ┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
 └─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.pslist | grep brave.exe
 ```
-<!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Be%20brave.png) [/spoiler] -->
+<!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Be%20brave.png) -->
 
 Flag= <!-- 4856 -->
 
@@ -78,6 +78,32 @@ flag= <!-- 9db01b1e7b19a3b2113bfb65e860fffd7a1630bdf2b18613d206ebf2aa0ea172 -->
 
 
 
+# 3- Let's Connect 
+***
+![Let's Connect](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Let's%20Connect.PNG)
+
+Nous allons afficher les informations réseaux contenues dans le dump de la mémoire RAM.  
+Pour ce faire, nous pouvons utiliser l'un des deux plugins: `windows.netscan`, `windows.netstat`.  
+
+* a) Commençons par afficher les connexions réseaux établies en utilisant le plugin `windows.netscan`.
+
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.netscan | grep ESTABLISHED 
+```
+![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Established.png)
+
+* b) On obtient le résultat de la figure ci-dessous sur laquelle nous pouvons compter manuellement le nombre de connexion réseaux établies mais imaginons des millions de lignes ... cela deviendrait très fastidieux alors plus proprement avec la commande suivante: 
+
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.netscan | grep ESTABLISHED | wc -l
+```
+
+
+<!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Let's%20Connect.png) -->
+
+Flag= <!-- 10 -->
 
 
 
@@ -86,11 +112,47 @@ flag= <!-- 9db01b1e7b19a3b2113bfb65e860fffd7a1630bdf2b18613d206ebf2aa0ea172 -->
 
 
 
+# 4- RAM Acquisition Time 
+***
+![RAM Acquisition Time](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20RAM%20Acquisition%20Time.PNG)
+
+Nous allons afficher les informations générales (le profile) du dump de la mémoire RAM .  
+Pour ce faire, nous pouvons utiliser le plugin: `windows.info` et nous intéresser à la valeur de `SystemTime`. 
+
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.info
+```
+<!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20RAM%20Acquisition%20Time.png) -->
+
+Flag= <!-- 2021-04-30 17:52:19 -->
 
 
 
 
 
+
+
+
+# 5- Chrome Connection
+***
+![Chrome Connection](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Chrome%20Connection.PNG)
+
+Nous allons afficher les informations réseaux contenues dans le dump de la mémoire RAM et s'intéresser aux connexions établies par le programme `chrome`.  
+Pour ce faire, nous pouvons utiliser l'un des deux plugins: `windows.netscan`, `windows.netstat`.  
+
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.netscan | grep ESTABLISHED | grep chrome
+```
+![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Publique%20IP.png)
+
+Sur la figure ci-dessus, nous remarquons que `chrome.exe` essaie d'établir une connexion avec l'IP publique `185.70.41.130`  sur le port 443.
+L'objectif est donc de retrouver le domaine correspondant à cette IP. La technique la plus simple et évidente est d'ouvrir notre navigateur et de se rendre sur `https://185.70.41.130`; une résolution de nom est effectuée et l'on retrouver bien `https://mail.protonmail.com/login` duquel on retire le domaine.  
+
+<!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Chrome%20Connection.png) -->
+
+Flag= <!-- mail.protonmail.com -->
 
 
 
