@@ -10,7 +10,7 @@
 |   6  | Hash Hash Baby                |         6         | Imagination, Volatility 3, MD5SUM      | :heavy_check_mark:    |
 |   7  | Offset Select                 |         6         | Imagination, HxD                       | :heavy_check_mark:    |
 |   8  | Process Parents Please        |         6         | Imagination, Volatility 3              | :heavy_check_mark:    |
-|   9  | Finding Filenames             |         9         | Imagination, Volatility 3              | :x:                   |
+|   9  | Finding Filenames             |         9         | Imagination, Volatility 3              | :heavy_check_mark:    |
 |  10  | Hocus Focus                   |         9         | Imagination, Volatility 3              | :x:                   |
 |  11  | Meetings                      |        12         | Imagination, Volatility 3              | :x:                   |
 
@@ -189,7 +189,7 @@ Flag= <!-- 0b493d8e26f03ccd2060e0be85f430af -->
 
 
 
-# 8- Offset Select 
+# 7- Offset Select 
 ***
 ![Offset Select](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Offset%20Select.PNG)
 
@@ -211,7 +211,7 @@ Flag= <!-- hacker -->
 
 
 
-# 9- Process Parents Please 
+# 8- Process Parents Please 
 ***
 ![Process Parents Please](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Process%20Parents%20Please.PNG)
 
@@ -233,7 +233,7 @@ Pour ce faire, nous pouvons utiliser l'un des trois plugins: `windows.pslist`, `
 └─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.pslist | grep powershell.exe
 ```
 
-![En-tête de plist](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/ppid%20poweshell.png)
+![Grep de plist](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/ppid%20poweshell.png)
 
 
 * c) Maintenant que nous avons le PID du processus parent de `powershell.exe`, nous pouvons enfin trouver la date de sa création.
@@ -251,6 +251,63 @@ Flag= <!-- 2021-04-30 17:39:48 -->
 
 
 
+# 9- Finding Filenames
+***
+![Finding Filenames](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Finding%20Filenames.PNG)
+
+Supposons que l'utilisateur ait ouvert le fichier en  question en ligne de commande, nous cherchons alors l'historique des commandes qui ont été saisies.
+Pour ce faire, nous pouvons utiliser le plugin: `windows.cmdline`. 
+
+* a) Trouvons le PID du processus `notepad.exe`.
+
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.pslist | grep notepad.exe
+```
+![grep notepad](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/pid%20notepad.png)
+
+* b) Nous pouvons ensuite afficher l'historique des commandes tapées sur la machine en filtrant par le PID `2520` du processus `notepad.exe`
+
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.cmdline.CmdLine --pid 2520
+```
+<!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Finding%20Filenames.png) -->
+
+Flag= <!-- C:\Windows\system32\NOTEPAD.EXE" C:\Users\JOHNDO~1\AppData\Local\Temp\7zO4FB31F24\accountNum -->
+
+
+
+
+
+
+
+
+
+# 10- Hocus Focus
+***
+![Hocus Focus](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Hocus%20Focus.PNG)
+
+Nous allons afficher les clés de registre et les informations userassist contenues dans le dump de la mémoire RAM. 
+Pour ce faire, nous pouvons utiliser le plugin: `windows.registry.userassist`.  
+
+* a) Commençons par afficher les en-têtes de l'output du plugin que nous utiliserons à savoir `windows.registry.userassist`.
+
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.registry.userassist | head
+```
+![En-tête registry](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/registry%20head.png)
+
+* b) Nous pouvons ensuite afficher l'historique des commandes tapées sur la machine en filtrant par le PID `2520` du processus `notepad.exe`
+
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.registry.userassist | grep Brave
+```
+<!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Hocus%20Focus.png) -->
+
+Flag= <!-- 4:01:54 -->
 
 
 
