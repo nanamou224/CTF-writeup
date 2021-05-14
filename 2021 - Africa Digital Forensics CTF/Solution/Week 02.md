@@ -1,25 +1,23 @@
 ## Week 2 (May 10 - 16) : RAM Image Analysis   
-:*:\check::✅
-:*:\cross::❌
 
-|  N°  | Intitulé du challenges        | Nombre de points  |      Outils utilisés              |
-| -----| ------------------------------|:-----------------:| ---------------------------------:|
-|   1  | Be Brave                      |         3         |                                   | 
-|   2  | Image Verification            |         3         |                                   |
-|   3  | Let's Connect                 |         3         |                                   |
-|   4  | RAM Acquisition Time          |         3         |                                   |
-|   5  | Chrome Connection             |         6         |                                   |
-|   6  | Hash Hash Baby                |         6         |                                   |
-|   7  | Offset Select                 |         6         |                                   |
-|   8  | Process Parents Please        |         6         |                                   |
-|   9  | Finding Filenames             |         9         |                                   |
-|  10  | Hocus Focus                   |         9         |                                   |
-|  11  | Meetings                      |        12         |                                   |
 
+|  N°  | Intitulé du challenges        | Nombre de points  |      Outils utilisés              |     Statut         |
+| -----| ------------------------------|:-----------------:| ---------------------------------:| ------------------:|
+|   1  | Be Brave                      |         3         |                                   | :heavy_check_mark: |
+|   2  | Image Verification            |         3         |                                   | :heavy_check_mark: |
+|   3  | Let's Connect                 |         3         |                                   | :x:                |
+|   4  | RAM Acquisition Time          |         3         |                                   | :x:                |
+|   5  | Chrome Connection             |         6         |                                   | :x:                |
+|   6  | Hash Hash Baby                |         6         |                                   | :x:                |
+|   7  | Offset Select                 |         6         |                                   | :x:                |
+|   8  | Process Parents Please        |         6         |                                   | :x:                |
+|   9  | Finding Filenames             |         9         |                                   | :x:                |
+|  10  | Hocus Focus                   |         9         |                                   | :x:                |
+|  11  | Meetings                      |        12         |                                   | :x:                |
 
 
 
-# 1- Be Brave \check
+# 1- Be Brave 
 ---
 ![Be Brave](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Be%20Brave.PNG)
 
