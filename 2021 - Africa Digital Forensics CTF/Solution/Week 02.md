@@ -1,18 +1,18 @@
 ## Week 2 (May 10 - 16) : RAM Image Analysis   
 
-|  N°  | Intitulé du challenges        | Nombre de points  |      Outils utilisés              |        Statut         |
-| -----| ------------------------------|:-----------------:| ---------------------------------:| ---------------------:|
-|   1  | Be Brave                      |         3         | Volatility 3                      | :heavy_check_mark:    |
-|   2  | Image Verification            |         3         |                                   | :heavy_check_mark:    |
-|   3  | Let's Connect                 |         3         |                                   | :heavy_check_mark:    |
-|   4  | RAM Acquisition Time          |         3         |                                   | :heavy_check_mark:    |
-|   5  | Chrome Connection             |         6         |                                   | :heavy_check_mark:    |
-|   6  | Hash Hash Baby                |         6         |                                   | :heavy_check_mark:    |
-|   7  | Offset Select                 |         6         |                                   | :x:                   |
-|   8  | Process Parents Please        |         6         |                                   | :x:                   |
-|   9  | Finding Filenames             |         9         |                                   | :x:                   |
-|  10  | Hocus Focus                   |         9         |                                   | :x:                   |
-|  11  | Meetings                      |        12         |                                   | :x:                   |
+|  N°  | Intitulé du challenges        | Nombre de points  |           Outils utilisés              |        Statut         |
+| -----| ------------------------------|:-----------------:| --------------------------------------:| ---------------------:|
+|   1  | Be Brave                      |         3         | Imagination, Volatility 3              | :heavy_check_mark:    |
+|   2  | Image Verification            |         3         | Imagination, Volatility 3              | :heavy_check_mark:    |
+|   3  | Let's Connect                 |         3         | Imagination, Volatility 3              | :heavy_check_mark:    |
+|   4  | RAM Acquisition Time          |         3         | Imagination, Volatility 3              | :heavy_check_mark:    |
+|   5  | Chrome Connection             |         6         | Imagination, Volatility 3              | :heavy_check_mark:    |
+|   6  | Hash Hash Baby                |         6         | Imagination, Volatility 3, MD5SUM      | :heavy_check_mark:    |
+|   7  | Offset Select                 |         6         | Imagination, Volatility 3              | :x:                   |
+|   8  | Process Parents Please        |         6         | Imagination, Volatility 3              | :x:                   |
+|   9  | Finding Filenames             |         9         | Imagination, Volatility 3              | :x:                   |
+|  10  | Hocus Focus                   |         9         | Imagination, Volatility 3              | :x:                   |
+|  11  | Meetings                      |        12         | Imagination, Volatility 3              | :x:                   |
 
 
 
@@ -63,7 +63,7 @@ Flag= <!-- 4856 -->
 ***
 ![Image Verification](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Image%20Verification.PNG)
 
-Nous allons hasher l'image de la mémoire RAM à disposition avec l'algorithme SHA256. Pour ce faire, différentes méthodes s'offrent à nous comme :  
+Nous allons hasher l'image de la mémoire RAM à disposition avec l'algorithme SHA256. Pour ce faire, différentes méthodes s'offrent à nous :  
 - utiliser un outil en ligne 
 - utiliser un utilitaire Unix/Linux comme `sha256sum` de la `GNU Core Utilities` ou `sha256deep` de la `MD5deep suite` etc.
 - etc
@@ -169,7 +169,12 @@ Nous pouvons enfin dumper le processus de PID `6988` avec la commade ci-dessous.
 
 ![Dump processus de PID 6988](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Processus%20PID.png)
 
-Il nous reste plus qu'à hasher le fichier dumpé `pid.6988.0x1c0000.dmp` avec l'algorithme MD5. Pour ce faire, plusieurs techniques et outils existent mais nous allons utiliser l'outil `md5sum` installé par défaut sur Kali Linux.  
+Il nous reste plus qu'à hasher le fichier dumpé `pid.6988.0x1c0000.dmp` avec l'algorithme MD5. Pour ce faire, différentes méthodes s'offrent à nous :  
+- utiliser un outil en ligne 
+- utiliser un utilitaire Unix/Linux comme `md5sum` de la `GNU Core Utilities` ou `md5deep` de la `MD5deep suite` etc.
+- etc
+
+Ici, nous faisons le choix de l'outil `md5sum` installé par défaut sur Kali Linux.  
 
 ```console
 ┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
