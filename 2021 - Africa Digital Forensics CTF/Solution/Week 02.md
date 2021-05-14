@@ -1,6 +1,6 @@
 ## Week 2 (May 10 - 16) : RAM Image Analysis   
 
-|  N°  | Intitulé du challenges        | Nombre de points  |           Outils utilisés              |        Statut         |
+|  N°  | Intitulé du challenges        | Nombre de points  | Outils utilisés                        |        Statut         |
 | -----| ------------------------------|:-----------------:| --------------------------------------:| ---------------------:|
 |   1  | Be Brave                      |         3         | Imagination, Volatility 3              | :heavy_check_mark:    |
 |   2  | Image Verification            |         3         | Imagination, Volatility 3              | :heavy_check_mark:    |
@@ -343,3 +343,6 @@ Flag= <!-- victoria falls -->
 - [ ] Afficher les flags en PlainText
 - [ ] Ajouter des ancres de navigation au tableau
 - [ ] Inviter d'autres participants à partager leurs démarches si différentes de la mienne
+
+
+**Author** : [@nanamou224](https://twitter.com/_nanamou224)
