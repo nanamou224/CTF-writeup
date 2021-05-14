@@ -41,7 +41,7 @@ Pour ce faire, nous pouvons utiliser l'un des trois plugins: `windows.pslist`, `
 
 Flag= [spoiler] 4856 [/spoiler]
 
-
+[spoiler]This text will be blurred[/spoiler] click on it to make it readable
 
 # To do
 -----------
