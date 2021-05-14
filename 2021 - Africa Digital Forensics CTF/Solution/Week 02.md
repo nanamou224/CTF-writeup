@@ -9,7 +9,7 @@
 |   5  | Chrome Connection             |         6         | Imagination, Volatility 3              | :heavy_check_mark:    |
 |   6  | Hash Hash Baby                |         6         | Imagination, Volatility 3, MD5SUM      | :heavy_check_mark:    |
 |   7  | Offset Select                 |         6         | Imagination, HxD                       | :heavy_check_mark:    |
-|   8  | Process Parents Please        |         6         | Imagination, Volatility 3              | :x:                   |
+|   8  | Process Parents Please        |         6         | Imagination, Volatility 3              | :heavy_check_mark:    |
 |   9  | Finding Filenames             |         9         | Imagination, Volatility 3              | :x:                   |
 |  10  | Hocus Focus                   |         9         | Imagination, Volatility 3              | :x:                   |
 |  11  | Meetings                      |        12         | Imagination, Volatility 3              | :x:                   |
@@ -189,7 +189,7 @@ Flag= <!-- 0b493d8e26f03ccd2060e0be85f430af -->
 
 
 
-# 7- Offset Select 
+# 8- Offset Select 
 ***
 ![Offset Select](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Offset%20Select.PNG)
 
@@ -207,6 +207,50 @@ Nous allons avoir besoin d'un outil qui nous permet d'afficher la correspondance
 <!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Offset%20Select.png) -->
 
 Flag= <!-- hacker -->
+
+
+
+
+# 9- Process Parents Please 
+***
+![Process Parents Please](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Process%20Parents%20Please.PNG)
+
+Nous allons afficher les informations des processus en cours d'exécution lors du dump de la mémoire RAM. 
+Pour ce faire, nous pouvons utiliser l'un des trois plugins: `windows.pslist`, `windows.psscan` ou `windows.pstree`.  
+* a) Commençons par afficher les en-têtes de l'output du plugin que nous utiliserons à savoir `windows.pslist`.
+
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.pslist | head 
+```
+![En-tête de plist](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/pslist%20head%2001.png)
+
+
+* b) Ensuite, trouvons le PPID de `powershell.exe`
+
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.pslist | grep powershell.exe
+```
+
+![En-tête de plist](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/ppid%20poweshell.png)
+
+
+* c) Maintenant que nous avons le PID du processus parent de `powershell.exe`, nous pouvons enfin trouver la date de sa création.
+
+```console
+┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
+└─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.pslist | grep 4352
+```
+<!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Process%20Parents%20Please.png) -->
+
+Flag= <!-- 2021-04-30 17:39:48 -->
+
+
+
+
+
+
 
 
 
