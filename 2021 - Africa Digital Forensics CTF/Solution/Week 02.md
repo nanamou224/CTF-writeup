@@ -11,8 +11,8 @@
 |   7  | Offset Select                 |         6         | Imagination, HxD                       | :heavy_check_mark:    |
 |   8  | Process Parents Please        |         6         | Imagination, Volatility 3              | :heavy_check_mark:    |
 |   9  | Finding Filenames             |         9         | Imagination, Volatility 3              | :heavy_check_mark:    |
-|  10  | Hocus Focus                   |         9         | Imagination, Volatility 3              | :x:                   |
-|  11  | Meetings                      |        12         | Imagination, Volatility 3              | :x:                   |
+|  10  | Hocus Focus                   |         9         | Imagination, Volatility 3              | :heavy_check_mark:    |
+|  11  | Meetings                      |        12         | Imagination, Autopsy, Google           | :heavy_check_mark:    |
 
 
 
@@ -194,7 +194,7 @@ Flag= <!-- 0b493d8e26f03ccd2060e0be85f430af -->
 ![Offset Select](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Offset%20Select.PNG)
 
 Nous allons avoir besoin d'un outil qui nous permet d'afficher la correspondance  Hexadecimal - ASCII. Pour cela, plusieurs outils existent mais nous allons préférer utiliser l'outil graphique `HxD`. 
-* a- Charger le dump mémoire `20210430-Win10Home-20H2-64bit-memdump.mem` dans le logiciel graphique `HxD` et suivre lq démarche: 
+* a- Charger le dump mémoire `20210430-Win10Home-20H2-64bit-memdump.mem` dans le logiciel graphique `HxD` et suivre la démarche: 
  `Rechercher` > `Atteindre` > Coller la chaine `"45BE876"` > `Ok`  
 
 ![HxD 01](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/HxD%2001.png)
@@ -250,7 +250,6 @@ Flag= <!-- 2021-04-30 17:39:48 -->
 
 
 
-
 # 9- Finding Filenames
 ***
 ![Finding Filenames](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Finding%20Filenames.PNG)
@@ -275,10 +274,6 @@ Pour ce faire, nous pouvons utiliser le plugin: `windows.cmdline`.
 <!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Finding%20Filenames.png) -->
 
 Flag= <!-- C:\Windows\system32\NOTEPAD.EXE" C:\Users\JOHNDO~1\AppData\Local\Temp\7zO4FB31F24\accountNum -->
-
-
-
-
 
 
 
@@ -312,6 +307,30 @@ Flag= <!-- 4:01:54 -->
 
 
 
+
+
+# 11- Meetings
+***
+![Hocus Focus](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Meetings.PNG)
+
+Nous allons avoir besoin du framework `Autopsy` pour récuperer tous les fichiers `PDF` contenus dans le dump du disque dur afin de les analyser.
+
+* a- Charger le dump du disque dur `001Win10.E01` dans le logiciel graphique `Autopsy` et suivre la démarche:  
+`File Types` > `By Extension` > `Documents` > `PDF` > Clic droit > `Extract file(s)`
+
+* b) Ouvrir le seul fichier PDF extrait lisible du lot nommé `"29152-almanac-start-a-garden.pdf"`
+* c) Lire l'information `2021-06-13 17°55'27.4"S 25°51'26.4"E` en bas de la page 12/21, en extraire les coordonnées GPS `"17°55'27.4"S 25°51'26.4"E"` à recopier sur 
+ le moteur de recherche de Google pour obtenir la place et le pays ou le suspect prévoit de se rendre à lq date du `2021-06-13`. 
+
+![HxD 01](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/extract%20files.png)
+
+![HxD 02](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/GPS%20Meetings.png)
+
+
+
+<!-- ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Meetings.png) -->
+
+Flag= <!-- victoria falls -->
 
 
 
