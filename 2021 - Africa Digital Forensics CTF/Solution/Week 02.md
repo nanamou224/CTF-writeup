@@ -19,7 +19,7 @@
 
 # 1- Be Brave
 -----------
-[Be Brave](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Be%20Brave.PNG)
+![Be Brave](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Be%20Brave.PNG)
 
 Nous allons afficher les informations des processus en cours d'exécution lors du dump de la mémoire RAM. 
 Pour ce faire, nous pouvons utiliser l'un des trois plugins: `windows.pslist`, `windows.psscan` ou `windows.pstree`.  
@@ -39,7 +39,7 @@ foo
 └─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.pslist | grep brave.exe
 foo
 ```
-[spoiler] [Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Be%20brave.png) [/spoiler]
+![spoiler] [Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Be%20brave.png) [/spoiler]
 
 Flag=[spoiler]4856[/spoiler]
 
@@ -47,6 +47,7 @@ Flag=[spoiler]4856[/spoiler]
 
 # To do
 -----------
+- [ ] Ecrire la trame du writeup
 - [x] Expliquer d'avantage chaque étape
 - [x] Afficher les flags en PlainText
 - [x] Inviter d'autres participants à partager leurs démarches si différentes de la mienne
