@@ -18,7 +18,7 @@
 
 
 # 1- Be Brave
------------
+---
 ![Be Brave](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Be%20Brave.PNG)
 
 Nous allons afficher les informations des processus en cours d'exécution lors du dump de la mémoire RAM. 
@@ -44,7 +44,7 @@ Flag= <!--   [spoiler] 4856 [/spoiler] -->
 
 
 # To do
------------
+---
 - [x] Ecrire la trame du writeup
 - [ ] Expliquer d'avantage chaque étape
 - [ ] Afficher les flags en PlainText
