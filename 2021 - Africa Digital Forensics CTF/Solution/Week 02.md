@@ -4,7 +4,7 @@
 
 |  N°  | Intitulé du challenges        | Nombre de points  |      Outils utilisés              |
 | -----| ------------------------------|:-----------------:| ---------------------------------:|
-|   1  | Be Brave                      |         3         |                                   | \check
+|   1  | Be Brave                      |         3         |                                   | 
 |   2  | Image Verification            |         3         |                                   |
 |   3  | Let's Connect                 |         3         |                                   |
 |   4  | RAM Acquisition Time          |         3         |                                   |
@@ -19,7 +19,7 @@
 
 
 
-# 1- Be Brave
+# 1- Be Brave \check
 ---
 ![Be Brave](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Challenge%20Be%20Brave.PNG)
 
