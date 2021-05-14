@@ -37,11 +37,11 @@ Pour ce faire, nous pouvons utiliser l'un des trois plugins: `windows.pslist`, `
 ┌──(root💀kali)-[~/Desktop/Forensics/volatility3]
 └─# python3 vol.py -f ../Africa-DFIRCTF-2021-WK02/20210430-Win10Home-20H2-64bit-memdump.mem windows.pslist | grep brave.exe
 ```
-[spoiler] ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Be%20brave.png) [/spoiler]
+<!-- [spoiler] ![Flag](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Be%20brave.png) [/spoiler] -->
 
-Flag= [spoiler] 4856 [/spoiler]
+Flag= <!--   [spoiler] 4856 [/spoiler] -->
 
-[spoiler]This text will be blurred[/spoiler] click on it to make it readable
+
 
 # To do
 -----------
