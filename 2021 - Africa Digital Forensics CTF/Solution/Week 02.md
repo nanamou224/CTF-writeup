@@ -31,7 +31,7 @@ Comme on peut le constater sur la capture ci-dessus, le fichier est bien intègr
 NB: Ce dernier point doit être une habitude à adopter pour tous vos futurs téléchargements sur Internet afin de vous assurer que les fichiers téléchargés sont bien intègres.
 
 
-### *Remarque*: Dans ces challenges, nous utiliserons Volatility 3 pour sa compatibilité avec les versions de Windows 10 et supérieures.
+**Remarque** : Dans ces challenges, nous utiliserons Volatility 3 pour sa compatibilité avec les versions de Windows 10 et supérieures.
 
 # 1- Be Brave 
 ***
