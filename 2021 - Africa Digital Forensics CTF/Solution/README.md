@@ -6,7 +6,7 @@ Des challenges étaient ajoutés progressivement chaque lundi matin correspondan
 `>` Week 04 : Android Forensic  
 
 # Téléchargez les challenges!  (~18 Go)
-1- Téléchargez les torrents du CTF via [les ressources](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Ressources/Africa-DFIRCTF-2021-WK02_archive.torrent)  
+1- Téléchargez les torrents du CTF via [les ressources](https://github.com/nanamou224/CTF-writeup/tree/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Ressources)  
 2- Téléchargez et installez le téléchargeur de fichiers torrent [qBittorrent](https://www.qbittorrent.org/) ou autres.    
 3- Importez vos fichiers torrent dans le logiciel qBittorrent et lancez vos téléchargements.  
 4- Organisez tous vos fichiers relatifs au CTF dans un repertoire que vous nommerez par exemple `DFIR_CTF_2021`.  
