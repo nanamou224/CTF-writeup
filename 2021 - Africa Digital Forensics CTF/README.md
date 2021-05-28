@@ -1,4 +1,4 @@
-# 0. Mes résultats de ce CTF
+# 0. Mes résultats du CTF
 La rapidité était de mise lors de ce CTF. Le décallage horaire ainsi que les responsabilités/disponibilités des participants ont été des facteurs qui ont affecté les uns et les autres. Néanmoins, chacun des 20 premiers du CTF a réussi tous les challenges soit un score de 276/276 points.    
 
 ![Mes résultats de ce CTF](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/charliepy%20and%20intrusion.png)
