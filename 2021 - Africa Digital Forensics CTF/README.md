@@ -1,36 +1,51 @@
 
 # 1. Description du CTF
-Première compétition d'investigation numérique (#forensics) sous forme de Capture The Flag (#CTF) organisée par la branche cybersecurité de l'ONU en Afrique (UNODC) du 01 au 31 mai 2021.   
+Compétition DFIR (Digital Forensics & Incident Response) sous forme de CTF (Capture The Flag) organisée par la branche cybersecurité de l'ONU en Afrique (UNODC) du 01 au 31 mai 2021.   
+ 
+| Eléments                    | Chiffres                                        |  
+| ----------------------------|:-----------------------------------------------:|
+| Oragnisateur du CTF         | [ONU - UN Cyber](https://twitter.com/UN__Cyber) |
+| Lien du CTF                 | https://ctf.dfir.science/data                   | 
+| Concepteur technique du CTF | [Dr. Joshua I. James](https://dfir.science/)    | 
+| Catégorie du CTF            | Forensics (Disk, Memory, Network, Android)      | 
+| Durée du CTF                | 28 jours (du 03 au 30 mai 2021)                 | 
+| Nombre de challenges du CTF | 47                                              | 
+| Score max obtenu            | 276/276                                         | 
+| Score min obtenu            | 1/276                                           |
+
 
 # 2. Statistiques des participants
-279 participants issus de 26 pays d'Afrique
+279 participants de la diaspora ou issus de 26 pays d'Afrique.
 
-Benin
-Botswana
-Burkina Faso
-Cameroon
-Congo - Kinshasa
-Côte d’Ivoire
-Egypt
-El Salvador
-Ethiopia
-Gambia
-Ghana
-Guinea
-Kenya
-Mali
-Morocco
-Namibia
-Niger
-Nigeria
-Rwanda
-Senegal
-South Africa
-Swaziland
-Tanzania
-Togo
-Tunisia
-Zimbabwe
+|  N°  | Pays              | Nombre de participants  |  
+| -----| ------------------|:-----------------------:|
+|   1  | Benin             |             x           | 
+|   2  | Botswana          |             x           | 
+|   3  | Burkina Faso      |             x           | 
+|   4  | Cameroon          |             x           | 
+|   5  | Congo - Kinshasa  |             x           |
+|   6  | Côte d’Ivoire     |             x           | 
+|   7  | Egypt             |             x           | 
+|   8  | El Salvador       |             x           |
+|   9  | Ethiopia          |             x           | 
+|  10  | Gambia            |             x           |
+|  11  | Ghana             |             x           | 
+|  12  | Guinea            |             x           | 
+|  13  | Kenya             |             x           | 
+|  14  | Mali              |             x           |
+|  15  | Morocco           |             x           | 
+|  16  | Namibia           |             x           |
+|  17  | Niger             |             x           | 
+|  18  | Nigeria           |             x           | 
+|  19  | Rwanda            |             x           |
+|  20  | Senegal           |             x           | 
+|  21  | South Africa      |             x           |
+|  22  | Swaziland         |             x           | 
+|  23  | Tanzania          |             x           | 
+|  24  | Togo              |             x           |
+|  25  | Tunisia           |             x           | 
+|  26  | Zimbabwe          |             x           |
 
 
-![Africa Digital Forensics CTF](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Africa%20DFIR%20Science.PNG)
+
+![Top 15 du CTF](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Africa%20DFIR%20Science.PNG)
