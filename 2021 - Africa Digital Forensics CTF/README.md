@@ -1,5 +1,5 @@
 # 0. Mes résultats de ce CTF
-[](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/charliepy%20and%20intrusion.png)
+![Mes résultats de ce CTF](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/charliepy%20and%20intrusion.png)
 
 
 # 1. Description du CTF
