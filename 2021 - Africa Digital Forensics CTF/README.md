@@ -12,6 +12,7 @@ Compétition DFIR (Digital Forensics & Incident Response) sous forme de CTF (Cap
 | Nombre de challenges du CTF | 47                                              | 
 | Score max obtenu            | 276/276                                         | 
 | Score min obtenu            | 1/276                                           |
+| Nombre de participants      | 279 participants de 26 pays d'Afrique           |
 
 
 # 2. Statistiques des participants
