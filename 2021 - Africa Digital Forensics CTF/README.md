@@ -1,3 +1,6 @@
+# 0. Mes résultats de ce CTF
+[](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/charliepy%20and%20intrusion.png)
+
 
 # 1. Description du CTF
 Compétition DFIR (Digital Forensics & Incident Response) sous forme de CTF (Capture The Flag) organisée par la branche cybersecurité de l'ONU en Afrique (UNODC) du 01 au 31 mai 2021.   
