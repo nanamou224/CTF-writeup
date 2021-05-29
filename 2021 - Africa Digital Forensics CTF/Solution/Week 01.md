@@ -64,18 +64,17 @@ _flag_ :triangular_flag_on_post: = `430d0f91dc30b6c6de407ad622f12427`
 _Bon ... vous commencez à comprendre la langue de shakespeare, pas la peine de traduire non?_   
 
 _Puisqu'il s'agit de retrouver la date et le temps de suppression d'un fichier, il est légitime de se poser ces deux questions:_    
-- _Où vont les éléments supprimés sous Windows? La réponse évidente est : ils vont dans une sorte de dossier poubelle.   
+- _Où vont les éléments supprimés sous Windows? La réponse évidente est : ils vont dans une sorte de dossier poubelle._   
 - _Quel est le dossier poubelle dans le système que nous sommes entrain d'analyser à savoir Windows? Eh bien, une petite recherche sur le moteur de recherche Google nous indique 
-qu'il y'en a un seul par disque dur et il s'appelle `$Recycle.Bin`. C'est un répertoire situé à la racine du disque dur, masqué par défaut et seul `SYSTEM` a tous les droits là-dessus, autrement vous ne pouvez pas le vider même en vidant votre corbeille!_  
+qu'il y'en a un seul par disque dur et il s'appelle `$Recycle.Bin`. C'est un répertoire situé à la racine du disque dur, masqué par défaut et seul `SYSTEM` a tous les droits dessus, autrement vous ne pouvez pas le vider même en vidant votre corbeille!_  
 
-A l'aide de notre outil `Autopsy`, nous pouvons naviguer agréablement vers ce dossier à la recherche du trésor.   
+_A l'aide de notre outil `Autopsy`, nous pouvons naviguer agréablement vers ce dossier à la recherche du trésor._   
 
 _:zap: **Méthode 1**: Utilisation de `Deleted Files` de `Autopsy`  
-Possible mais prend beaucoup de temps pour identifier le fichier supprimé parmi les 2382 éléments même combinée avec l'option `Keywords Search`_      
+Possible mais prend du temps pour identifier le fichier supprimé parmi les 2382 éléments même combinée avec l'option `Keywords Search`_      
 
 _:zap: **Méthode 2**: Exploitation de `$Recycle.Bin`  
-1- Allez dans `001Win10.E01` > `vol3 (NTFS / exFAT (0x07): 104448-103830231)` > `$Recycle.Bin` > `S-1-5-21-3061953532-2461696977-1363062292-1001` > `$RW9BJ2Z.txt`  
-Ou passer par l'option `Keywords Search` de `Autopsy`.  
+1- Allez dans `001Win10.E01` > `vol3 (NTFS / exFAT (0x07): 104448-103830231)` > `$Recycle.Bin` > `S-1-5-21-3061953532-2461696977-1363062292-1001` > `$RW9BJ2Z.txt` ou passer par l'option `Keywords Search` de `Autopsy`.  
 2- Copier la date `Change Time`: 2021-04-29 20:22:17 CEST_
 
 ![Flag Deleted](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Deleted.png) 
@@ -86,6 +85,9 @@ _flag_ :triangular_flag_on_post: = `2021-04-29 18:22:17`
 
 
 
+
+## :tree: Server Connection 
+>What is the IPv4 address of the FTP server the suspect connected to? 
 
 
  
