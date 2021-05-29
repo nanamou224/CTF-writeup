@@ -38,13 +38,14 @@ _Pour les plus anglophones d'entre vous (:stuck_out_tongue:), on demande le hash
 
 _En regardant dans l'image disque dur à disposition, nous voyons 15 fichiers compressés (format image `EWF` très riche et sollicité en forensics) nommés de la forme `001Win10.E0k` avec k=1, 2, ... 15. Ces fichiers représentent, chacun, une partie du disque dur physique suspecté._  
 
-_Nous allons donc dégainer notre outil capable de lire, interpréter et extraire intelligemment les informations utiles contenues dans le format `E01` que j'ai appélé `FTK Imager`, nous verrons que nous pourrons également le faire avec `Autopsy`._  
-
+_Nous allons donc dégainer notre outil capable de lire, interpréter et extraire intelligemment les informations utiles contenues dans le format `E01` que j'ai appélé `FTK Imager`,`Autopsy` permet également de le faire._  
 
 _Le plus souvent, c'est la parition 2 d'une image au format `E01` qui va nous intéressera car c'est elle qui contient le plus d'information (voir sa taille spécifiée entre crochet dans l'arbre d'évidence `FTK Imager` mais pour d'autres outils CLI, on est obligé de calculer son offset en posant `offset=512*taille_partition_1`)._
 
+_:zap: **Méthode 2**: Utilisation de `Autopsy`   
+Voir le module `Hash Lookup` de `Autopsy`   
 
-_:zap: **Méthode 1**: Utilisation de `FTK Imager`  
+_:zap: **Méthode 2**: Utilisation de `FTK Imager`  
 1- Sélectionnez l'image disque `001Win10.E01` dans l'arbre d'évidence sur la fénêtre d'à gauche     
 2- Allez dans `File` > `Verify Drive/Image...`_   
 ![`File`>`Verify Drive`](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/Hash%20Hard%20Disk%20FTK%20Imager.png)  
@@ -54,5 +55,4 @@ _3- Notez le hash MD5 générer après vérification de la source/image disque `
 
 flag :triangular_flag_on_post: = `430d0f91dc30b6c6de407ad622f12427`_ 
 
-_:zap: **Méthode 1**: Utilisation de `Autopsy`   
-Voir le module `Hash Lookup` de `Autopsy`  
+ 
