@@ -10,7 +10,7 @@ Aussi, dans l'analyse d'artifacts (traces d'attaque) sur des disques durs, des s
 
 Pour les challenges de la semaine 1 (Week 1), nous utiliserons principalement `FTK Imager` et `Autopsy` sous `Windows` à cause de leur inteface intuitive facilitant la navigation dans les différents dossiers/fichiers du disque dur à analyser.   
 
-Commencez par télécharger et installer [FTK Imager](https://accessdata.com/product-download/ftk-imager-version-4-5) et [Autopsy]](https://www.autopsy.com/download/) depuis leurs sites officiels sur votre OS Windows. 
+Commencez par télécharger et installer [FTK Imager](https://accessdata.com/product-download/ftk-imager-version-4-5) et [Autopsy](https://www.autopsy.com/download/) depuis leurs sites officiels sur votre OS Windows. 
 Ensuite, chargez l'image disque de la semaine 1 (Week 1) dans chacun des deux outils `FTK Imager` et `Autopsy`. Enfin, nous sommes prêts à débuter notre investigation numérique sur cette image disque fournie.  
 
 Ci-dessous les challenges à résoudre pour cette semaine 1 (Week 1).  
