@@ -41,7 +41,7 @@ _En regardant dans l'image disque dur à disposition, nous voyons 15 fichiers co
 
 _Nous allons donc dégainer notre outil capable de lire, interpréter et extraire intelligemment les informations utiles contenues dans le format `E01` que j'ai appélé `FTK Imager`,`Autopsy` permet également de le faire._  
 
-_Le plus souvent, c'est la parition 2 d'une image au format `E01` qui va nous intéressera car c'est elle qui contient le plus d'information (voir sa taille spécifiée entre crochet dans l'arbre d'évidence `FTK Imager` mais pour d'autres outils CLI, on est obligé de calculer son offset en posant `offset=512*taille_partition_1`)._
+_Le plus souvent, c'est la parition 2 d'une image au format `E01` qui nous intéressera car c'est elle qui contient le plus d'information (voir sa taille spécifiée entre crochet dans l'arbre d'évidence `FTK Imager` mais pour d'autres outils CLI, on est obligé de calculer son offset en posant `offset=512*taille_partition_1`)._
 
 _:zap: **Méthode 1**: Utilisation de `Autopsy`   
 Voir le module `Hash Lookup` de `Autopsy`_   
