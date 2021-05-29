@@ -4,7 +4,7 @@
 Un cybercrime vient d'être commis quelque part dans le monde sur une entité. En tant qu'Analyste Cybersécurité (DFIR), le First Responder vient nous remettre [l'image du disque de l'ordinateur](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Ressources/Africa-DFIRCTF-2021-WK01_archive.torrent) impliqué dans cette cyberattaque. Notre mission, si nous l'acceptons, sera de résoudre les challenges ci-dessous afin de retracer les évènements du malveillant et collecter le maximum de preuves contre lui.    
 
 ### Préparation de nos outils d'analyse
-Le rôle du First responder était d'acquérir les images. Il a bien dû utiliser des outils à cet effet comme `FTK Imager` qui reste l'un des plus populaires. C'est un outil graphique (GUI) facilitant l'acquisition de la copie du disque dur, du dump de la RAM etl'extraction de la MFT ou encore des fichiers supprimés...    
+Le rôle du First responder était d'acquérir les images. Il a bien dû utiliser des outils à cet effet comme `FTK Imager` qui reste l'un des plus populaires dans ce domaine. C'est un outil graphique (GUI) facilitant l'acquisition de la copie du disque dur, du dump de la RAM et l'extraction de la MFT ou encore des fichiers supprimés...    
 
 Aussi, dans l'analyse d'artifacts (traces d'attaque) sur des disques durs, des smatphones et clés USB, `Autopsy` et `Sleuth Kit` sont sans doute les deux outils les plus utilisés. Le premier est un outil graphique (GUI) tandis que le second est un outil en ligne de commande (CLI).  
 
@@ -31,7 +31,7 @@ Ci-dessous les challenges à résoudre pour cette semaine 1 (Week 1).
 **Notez bien**: Une bonne habitude est de commencer toujours par faire le tour des fichiers mis à disposition !  
 
 # 1- Suspect Disk Hash
-> ####Enoncé
+> ####Enoncé  
 > What is the MD5 hash value of the suspect disk?  
 Pour les plus anglophones d'entre vous (:stuck_out_tongue:), on demande le hash en MD5 de l'image disque (fichier 
 
