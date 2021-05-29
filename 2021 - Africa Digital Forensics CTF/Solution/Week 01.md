@@ -35,7 +35,7 @@ _**Notez bien**: Une bonne habitude est de commencer toujours par faire le tour 
 ## :one: Suspect Disk Hash  
 >What is the MD5 hash value of the suspect disk?  
 
-_Pour les plus anglophones d'entre vous (:stuck_out_tongue:), on demande le hash en MD5 du disque dur physique suspecté (disque dur original) et non celui de la copie ce disque dur (image du disque dur)!_  
+_Pour les plus anglophones d'entre vous (:stuck_out_tongue:), on demande le hash en MD5 du disque dur physique suspecté (disque dur original) et non celui de la copie de ce disque dur (image du disque dur)!_  
 
 _En regardant dans l'image disque dur à disposition, nous voyons 15 fichiers compressés (format image `EWF` très riche et sollicité en forensics) nommés de la forme `001Win10.E0k` avec k=1, 2, ... 15. Ces fichiers représentent, chacun, une partie du disque dur physique suspecté._  
 
