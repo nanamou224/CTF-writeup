@@ -161,3 +161,46 @@ _flag_ :triangular_flag_on_post: = `password cracking lists`_
 _**Remarque** Pour cette question, bizarrement la phrase `how to hack` recherchée par le malveillant valide également le challenge._
 
 
+
+
+## :five: Possible Location  
+>What country was picture "20210429_152043.jpg" allegedly taken in?
+
+_Hummm... ça sentirait pas de la stéganographie d'image par ici? Eh bien, oui c'est ce que nous allons voir dans la suite._  
+
+_:zap: **Méthode 1**: Utilisation de la fonctionnalité `Geolocation` de `Autopsy`
+En cliquant sur `Geolocation` dans le menu d'en haut, nous observons que deux pays sont pointés: `Nigeria` et `Zambia`. Cliquons sur chacune des deux locations, et nous voyons s'afficher les images prises à ces endroits avec leur métadonnées. Celle qui nous intéresse est `20210429_152043.jpg` qui se trouve sur la `Zambia`, d'ou le flag.
+
+![](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Possible%20Location.png)
+
+_flag_ :triangular_flag_on_post: = `Zambia`_
+
+
+_:zap: **Méthode 2**: Utilisation de `exiftool` 
+1- Rechercher l'image `20210429_152043.jpg` en utilisant la fonctionnalité `Keywords Search` intégrée à `Autopsy`  
+2- Exporter l'image sur notre machine Windows en faisant clic droit dessus puis `Extract File(s)` 
+3- Lire les métadonnées de l'image  
+Sachant qu'il faille chercher des coodonnées GPS, voici la commande à exécuter sous Kali Linux pour un accès direct à cette information._ 
+```console
+┌──(root💀kali)-[~/Desktop/DFIR_CTF_2021/Africa-DFIRCTF-2021-WK03]
+└─# exiftool -gpslatitude -gpslongitude 20210429_152043.jpg
+```
+_Nous obtenons comme résultats les coordonnées GPS précises (NB: avec Windows, il manquerait les précisions E et S)
+GPS Latitude      : 16 deg 0' 0.00" S  
+GPS Longitude     : 23 deg 0' 0.00" E_
+
+![](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/GPS.png)
+
+
+_4- Rechercher le pays du globe terrestre ayant pour coordonnées GPS: latitude=-16.0 et longitude=23.0
+Il suffit de bien formater ces coordonnées GPS en `16°0'0.00" S 23°0'0.00" E` puis copier-coller dans le moteur de recherche Google pour obtenir `Namasiku` comme résultat._  
+![](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/namasiku.png)
+
+5- Enfin, une petite recherche Google permet de savoir que `Namasiku` est en `Zambia`  
+_flag_ :triangular_flag_on_post: = `Zambia`_
+
+
+
+
+# A bientôt pour la suite du writeup
+
