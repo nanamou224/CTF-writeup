@@ -74,21 +74,23 @@ _:zap: **Méthode 1**: Utilisation de `Deleted Files` de `Autopsy`
 Possible mais prend du temps pour identifier le fichier supprimé parmi les 2382 éléments même combinée avec l'option `Keywords Search`_      
 
 _:zap: **Méthode 2**: Exploitation de `$Recycle.Bin`  
-1- Allez dans `001Win10.E01` > `vol3 (NTFS / exFAT (0x07): 104448-103830231)` > `$Recycle.Bin` > `S-1-5-21-3061953532-2461696977-1363062292-1001` > `$RW9BJ2Z.txt` ou passer par l'option `Keywords Search` de `Autopsy`.  
-2- Copier la date `Change Time`: 2021-04-29 20:22:17 CEST_
+1- _Obtenir `2021-04-29 20:22:17 CEST` par l'un des moyens suivants._
+- _Soit s'intéresser à `Time Deleted` en se rendant à `Results` > `Extracted Content` > `Recycle Bin (1)` > `$RW9BJ2Z.txt`_  
+![Flag Deleted](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20bis%20Deleted.png)  
 
+- _Soit sintéresser à `Change Time` en se rendant à `001Win10.E01` > `vol3 (NTFS / exFAT (0x07): 104448-103830231)` > `$Recycle.Bin` > `S-1-5-21-3061953532-2461696977-1363062292-1001` > `$RW9BJ2Z.txt`  
 ![Flag Deleted](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Deleted.png) 
 
-_3- Convertir cette date en UTC en utilisant cette formule trouvée sur le moteur de recherche Google : `UTC=CEST-2h`   
+- _Soit utiliser la fonctionalité `Keywords Search` de `Autopsy`.  
+
+_2- Convertir cette date en UTC en utilisant cette formule trouvée sur le moteur de recherche Google : `UTC=CEST-2h`   
 2021-04-29 20:22:17 CEST = 2021-04-29 20:22:17 - 2:00:00 UTC = 2021-04-29 18:22:17 UTC_  
 _flag_ :triangular_flag_on_post: = `2021-04-29 18:22:17` 
 
 
 
 
-## :tree: Server Connection 
+## :three: Server Connection 
 >What is the IPv4 address of the FTP server the suspect connected to? 
 
-
- 
 
