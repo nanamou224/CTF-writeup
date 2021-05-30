@@ -32,6 +32,11 @@ _Ci-dessous les challenges à résoudre pour cette semaine 1 (Week 1)._
 ### :balloon: Résolution des challenges
 _**Notez bien**: Une bonne habitude est de commencer toujours par faire le tour des fichiers mis à disposition !_  
 
+
+
+
+
+
 ## :one: Suspect Disk Hash  
 >What is the MD5 hash value of the suspect disk?  
 
@@ -57,7 +62,12 @@ _3- Notez le hash MD5 générer après vérification de la source/image disque `
 _flag_ :triangular_flag_on_post: = `430d0f91dc30b6c6de407ad622f12427` 
 
  
- 
+
+
+
+
+
+
 ## :two: Deleted  
 >What date and time was a password list deleted in UTC? (YYYY-MM-DD HH:MM:SS)  
 
@@ -73,7 +83,7 @@ _A l'aide de notre outil `Autopsy`, nous pouvons naviguer agréablement vers ce 
 _:zap: **Méthode 1**: Utilisation de `Deleted Files` de `Autopsy`  
 Possible mais prend du temps pour identifier le fichier supprimé parmi les 2382 éléments même combinée avec l'option `Keywords Search`_      
 
-_:zap: **Méthode 2**: Exploitation de `$Recycle.Bin`  
+_:zap: **Méthode 2**: Exploitation de `$Recycle.Bin`_  
 1- _Obtenir `2021-04-29 20:22:17 CEST` par l'un des moyens suivants._
 - _Soit s'intéresser à `Time Deleted` en se rendant à `Results` > `Extracted Content` > `Recycle Bin (1)` > `$RW9BJ2Z.txt`_  
 ![Flag Deleted](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20bis%20Deleted.png)  
@@ -93,16 +103,61 @@ _flag_ :triangular_flag_on_post: = `2021-04-29 18:22:17`
 
 _Pour ce challenge, il s'agit de retrouver l'adresse IP version 4 (format: `a.b.c.d` avec a, b, c et d des entiers naturels compris entre 0 et 255.) du server FTP sur lequel le suspect s'est connecté. Puisque nous avons à disposition uniquement l'image d'une machine impliquée dans un cybercrime, nous pouvons donc supposer qu'elle a été utilisée par le malveillant pour se connecter au serveur FTP en question. En cohérence avec cette hypothèse, le malveillant devrait donc avoir installé un Client FTP sur la machine afin de pouvoir joindre ce serveur FTP._  
 
-_Maintenant que nous avons analysé la situation, il est temps de retourner à notre outil `Autopsy`.  
-_1- Se rendre à `Results` > `Extracted Content` > `Installed Programs (48)`  
-Nous remarquons `FileZilla Client 3.53.1 v.3.53.1` dans la liste des programmes installés sur la machine, cela confirme notre hypothèse._  
+_Maintenant que nous avons analysé la situation, il est temps de retourner à notre outil `Autopsy`._  
+_1- Se rendre à `Results` > `Extracted Content` > `Installed Programs`ou encore `Results` > `Extracted Content` > `Run Programs`_  
+_Nous remarquons `FileZilla Client 3.53.1 v.3.53.1` dans la liste des programmes installés sur la machine, cela confirme notre hypothèse._  
 ![programme installés](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/programmes%20install%C3%A9s.png)
 
 _2- Rechercher sur Google le chemin absolu des fichiers relatifs à FileZilla Client sous Windows pour une installation par défaut   
-Cela nous doonne comme résultat: `C:\Users\<username>\AppData\Roaming\FileZilla` qu'on traduit en arborescence comme ce qui suit  
-3- Se rendre à `001Win10.E01` > `vol3 (NTFS / exFAT (0x07): 104448-103830231)` > `Users` > `John Doe` > `AppData` > `Roaming` > `FileZilla` > `recentservers.xml`  
+Cela nous doonne comme résultat: `C:\Users\<username>\AppData\Roaming\FileZilla` qu'on traduit en arborescence comme ce qui suit_  
+_3- Se rendre à `001Win10.E01` > `vol3 (NTFS / exFAT (0x07): 104448-103830231)` > `Users` > `John Doe` > `AppData` > `Roaming` > `FileZilla` > `recentservers.xml`_  
 
 ![flag Server Connection](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Server%20Connection.png)
 
 _flag_ :triangular_flag_on_post: = `192.168.1.20` 
+
+
+
+
+
+
+
+## :four: Web Search   
+>What phrase did the suspect search for on 2021-04-29 18:17:38 UTC? (three words) 
+
+_Nous devrons trouver les mots tapés par le malveillant sur le navigateur lors de sa recherche du 2021-04-29 18:17:38 UTC. Retournons en compagnie de notre fidèle ami `Autopsy`._ 
+
+_:zap: **Méthode 1**: Utilisation de la foncitonnalité `Web Search` de `Autopsy`_  
+_1- Se rendre à `Results` > `Extracted Content` > `Web Search`  
+En effet, le titre du challenge nous fait penser déjà à cela._  
+_2- Convertir la date 2021-04-29 18:17:38 UTC en CEST par cette formule trouvée sur le moteur de recherche Google : `UTC+2=CEST`     
+2021-04-29 18:17:38 UTC = 2021-04-29 18:17:38 UTC + 02:00:00 CEST = 2021-04-29 20:17:38 CEST_  
+_2- Trier les lignes par date et rechercher celle qui correspond à la fois à la date 2021-04-29 20:17:38 CEST et à trois mots (three words)_
+
+![flag Web Search](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Web%20Search.png)
+
+_flag_ :triangular_flag_on_post: = `password cracking lists` 
+
+
+_:zap: **Méthode 2**: Utilisation de `Autopsy` + Google_  
+_1- Se rendre à `Results` > `Extracted Content` > `Run Programs`_  
+_Nous remarquons que les trois navigateurs `BraveBrowser`, `Chrome` et `Tor` sont installés sur la machine._ 
+
+![Brave](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/brave%201.png)  
+![Chrome](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/chrome%202.png)  
+![Tor](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/tor%203.png)  
+
+_2- Rechercher sur Google le chemin sous Windows des fichiers contenant l'historique de navigation de chacun des trois navigateurs trouvés._      
+_Cela nous doonne comme résultat:_ 
+- _Pour Chrome: `C:\Users\<username>\AppData\Local\Google\Chrome\User Data\Default` 
+- _Pour Tor: ...
+- _Pour Brave: ... _
+
+_On  traduit ensuite ces chemins en arborescence `001Win10.E01` > `vol3 (NTFS / exFAT (0x07): 104448-103830231)` > `Users` > `John Doe` > `AppData` > `Local` > `Google` > `Chrome` > `User Data` > `Default` > `History` qu'on suit sous `Autopsy`. Nos recherches dans ces fichiers ont été fructueuses que pour le navigateur Google Chrome_
+
+![](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20bis%20Web%20Search.png)
+
+_flag_ :triangular_flag_on_post: = `password cracking lists`_  
+_**Remarque** Pour cette question, bizarrement la phrase `how to hack` recherchée par le malveillant valide également le challenge._
+
 
