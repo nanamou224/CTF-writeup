@@ -186,8 +186,6 @@ Sachant qu'il faille chercher des coodonnées GPS, voici la commande à exécute
 └─# exiftool -gpslatitude -gpslongitude 20210429_152043.jpg
 ```
 _Nous obtenons comme résultats les coordonnées GPS précises (NB: avec Windows, il manquerait les précisions E et S)  
-GPS Latitude      : 16 deg 0' 0.00" S    
-GPS Longitude     : 23 deg 0' 0.00" E_   
 
 ![](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/GPS.png)
 
