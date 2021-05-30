@@ -78,19 +78,31 @@ _:zap: **Méthode 2**: Exploitation de `$Recycle.Bin`
 - _Soit s'intéresser à `Time Deleted` en se rendant à `Results` > `Extracted Content` > `Recycle Bin (1)` > `$RW9BJ2Z.txt`_  
 ![Flag Deleted](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20bis%20Deleted.png)  
 
-- _Soit sintéresser à `Change Time` en se rendant à `001Win10.E01` > `vol3 (NTFS / exFAT (0x07): 104448-103830231)` > `$Recycle.Bin` > `S-1-5-21-3061953532-2461696977-1363062292-1001` > `$RW9BJ2Z.txt`  
+- _Soit sintéresser à `Change Time` en se rendant à_ `001Win10.E01` > `vol3 (NTFS / exFAT (0x07): 104448-103830231)` > `$Recycle.Bin` > `S-1-5-21-3061953532-2461696977-1363062292-1001` > `$RW9BJ2Z.txt`  
 ![Flag Deleted](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Deleted.png) 
 
-- _Soit utiliser la fonctionalité `Keywords Search` de `Autopsy`.  
+- _Soit utiliser la fonctionalité `Keywords Search` de_ `Autopsy`.  
 
 _2- Convertir cette date en UTC en utilisant cette formule trouvée sur le moteur de recherche Google : `UTC=CEST-2h`   
 2021-04-29 20:22:17 CEST = 2021-04-29 20:22:17 - 2:00:00 UTC = 2021-04-29 18:22:17 UTC_  
 _flag_ :triangular_flag_on_post: = `2021-04-29 18:22:17` 
 
 
+## :three: Server Connection  
+>What is the IPv4 address of the FTP server the suspect connected to?  
 
+_Pour ce challenge, il s'agit de retrouver l'adresse IP version 4 (format: `a.b.c.d` avec a, b, c et d des entiers naturels compris entre 0 et 255.) du server FTP sur lequel le suspect s'est connecté. Puisque nous avons à disposition uniquement l'image d'une machine impliquée dans un cybercrime, nous pouvons donc supposer qu'elle a été utilisée par le malveillant pour se connecter au serveur FTP en question. En cohérence avec cette hypothèse, le malveillant devrait donc avoir installé un Client FTP sur la machine afin de pouvoir joindre ce serveur FTP._  
 
-## :three: Server Connection 
->What is the IPv4 address of the FTP server the suspect connected to? 
+_Maintenant que nous avons analysé la situation, il est temps de retourner à notre outil `Autopsy`.  
+_1- Se rendre à `Results` > `Extracted Content` > `Installed Programs (48)`  
+Nous remarquons `FileZilla Client 3.53.1 v.3.53.1` dans la liste des programmes installés sur la machine, cela confirme notre hypothèse._  
+![programme installés](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/programmes%20install%C3%A9s.png)
 
+_2- Rechercher sur Google le chemin absolu des fichiers relatifs à FileZilla Client sous Windows pour une installation par défaut   
+Cela nous doonne comme résultat: `C:\Users\<username>\AppData\Roaming\FileZilla` qu'on traduit en arborescence comme ce qui suit  
+3- Se rendre à `001Win10.E01` > `vol3 (NTFS / exFAT (0x07): 104448-103830231)` > `Users` > `John Doe` > `AppData` > `Roaming` > `FileZilla` > `recentservers.xml`  
+
+![flag Server Connection](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Server%20Connection.png)
+
+_flag_ :triangular_flag_on_post: = `192.168.1.20` 
 
