@@ -12,6 +12,18 @@ Des challenges étaient ajoutés progressivement chaque lundi matin correspondan
 4- Organisez tous vos fichiers relatifs au CTF dans un repertoire que vous nommerez par exemple `DFIR_CTF_2021`.  
 
 # Outils utilisés/conseillés
+- Imagination
+- Google
+- FTK Imager  
+- Volatility  
+- Autopsy  
+- Wireshark    
+- Python  
+- Exiftool  
+- Pwdump  
+- Hashcat  
+
+
 TAF: Développer un script qui automatise l'installation des outils utilisés dans le CTF...
 
 # Pour aller plus loin ...
