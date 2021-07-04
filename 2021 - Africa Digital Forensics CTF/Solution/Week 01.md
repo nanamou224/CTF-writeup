@@ -272,7 +272,7 @@ _flag_ :triangular_flag_on_post: = `dreammaker82@protonmail.com`
 _:zap: **Méthode 2**: generate report > HTML report + web accounts + web history  
 1- Générer le rapport HTML en exploitant la fonctionnalité `Generate Report` de `Autopsy`   
 2- Se rendre à `Web History`  
-3- Rechercher le mot clé `@` en faisant `CRTL`+`F` car nous savons qu'une adresse email contient obligatoirement le caractère @ normal ou obfusqué.  
+3- Rechercher le mot clé `@` en faisant `CRTL`+`F` car nous savons qu'une adresse email contient obligatoirement le caractère @ ou obfusqué.  
 
 _flag_ :triangular_flag_on_post: = `dreammaker82@protonmail.com` 
 
