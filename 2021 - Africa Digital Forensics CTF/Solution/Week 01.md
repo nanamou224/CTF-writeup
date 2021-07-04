@@ -19,11 +19,11 @@ _Ci-dessous les challenges à résoudre pour cette semaine 1 (Week 1)._
 | -----| -------------------------|:-----------------:| -------------------------------:| ------------------------------------------:|
 |   1  | Suspect Disk Hash        |         3         | Imagination, FTK Imager/Autopsy | 430d0f91dc30b6c6de407ad622f12427           |
 |   2  | Deleted                  |         3         | Imagination, Autopsy            | 2021-04-29 18:22:17                        | 
-|   2  | Server Connection        |         3         | Imagination, Autopsy            | :heavy_check_mark:                         |
+|   2  | Server Connection        |         3         | Imagination, Autopsy            | 192.168.1.20                               |
 |   3  | Web Search               |         3         | Imagination, Autopsy            | :heavy_check_mark:                         |
-|   4  | Possible Location        |         6         | Imagination, Autopsy            | :heavy_check_mark:                         |
+|   4  | Possible Location        |         6         | Imagination, Autopsy            | Zambia                                     |
 |   5  | Tor Browser              |         6         | Imagination, Autopsy            | :heavy_check_mark:                         |
-|   6  | User Email               |         6         | Imagination, Autopsy            | :heavy_check_mark:                         |
+|   6  | User Email               |         6         | Imagination, Autopsy            | dreammaker82@protonmail.com                |
 |   7  | Web Scanning             |         6         | Imagination, Autopsy            | :heavy_check_mark:                         |
 |   8  | Copy Location            |         9         | Imagination, Autopsy            | :heavy_check_mark:                         |
 |   9  | Hash Cracker             |         9         | Imagination, Autopsy            | :heavy_check_mark:                         |
@@ -280,6 +280,9 @@ _flag_ :triangular_flag_on_post: = `dreammaker82@protonmail.com`
 
 
 
+# Nous continuerons prochainement. Laisse-moi tes questions à `nanamou224@gmail.com`
 
+## :eight: Web Scanning   
+>What website did the suspect port scan? 
 
 
