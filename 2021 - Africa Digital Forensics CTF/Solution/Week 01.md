@@ -200,38 +200,34 @@ _flag_ :triangular_flag_on_post: = `Zambia`
 
 
 
-# A bientôt pour la suite du writeup
 
-
-
-
-## :two: Tor Browser   
+## :six: Tor Browser   
 >How many times was Tor Browser ran on the suspect computer? (number only) 
 
 _Je sais que la langue de chez l'oncle Sam n'a plus aucun secret pour toi, permets-moi, toutefois, de te confirmer qu'ici, nous cherchons le nombre de fois (donc un entier, c'est-à-dire x tel que x>=0) ou le navigateur `Tor Browser` a été exécuté sur la machine de la victime. Notons bien l'égaglité large  ;), cette information est capitale comme tu le constateras par toi-même dans la suite._
 
 
 _:zap: **Méthode 1**: Brute-forcer le flag  
-Cette méthode est tout à fait légitime ici dans la mesure ou le le navigateur `Tor Browser` ne va pas non plus s'exécuter une infinité de fois sur la machine suspectée... Donc, il suffit d'utiliser un outil (un programme fait par vos soins ou un outil tel `BurpSuite`, `Hydra` ... qui se connecte au CTF et soumet une foultitude de valeurs que vous aurez paramétrées). Cela n'a pas été nécessaire ici car mon tout premier test manuel avec la valeur `0` a été concluant, eh oui !!!_
+Cette méthode est tout à fait légitime ici dans la mesure ou le le navigateur `Tor Browser` ne va pas non plus s'exécuter une infinité de fois sur la machine suspectée... Donc, il suffit d'utiliser un outil (un programme fait par vos soins ou un outil tel `BurpSuite`, `Hydra` ... qui se connecte au CTF et soumet une foultitude de valeurs que vous aurez paramétrées). Cela n'a pas été nécessaire ici car mon tout premier test manuel avec la valeur `0` a été concluant, eh oui !!!_   
 
 _Je tiens cependant à signaler ceci: lorsque vous serez appelé à analyser une scène de crime dans la vie réelle, on ne tatonne pas (le brute forcing est donc proscrit), on trouve un IOC point barre._  
 
 _flag_ :triangular_flag_on_post: = `0`
 
 
-_:zap: **Méthode 2**: Rechercher un IOC (Indice Of Compromise) dans le dossier AppData de l'utilisateur
-Puisque nos preuves doivent être intangibles et judicièrement valides alors la méthode élégante est la recherche d'artifact. En se rendant au chemin `001Win10.E01` > `vol3 (NTFS / exFAT (0x07): 104448-103830231)` > `Users` > `John Doe` > `AppData`, nous ne trouvons pas `Tor Browser` ni dans dans `Local`, ni dans `LocalLow` encore moins dans `Roaming`. Nous pouvons donc conclure, qu'il a été installé sans jamais être exécuté sur la machine suspecte. Et donc logiquement, l'absence d'IOC équivaut à la négative de ce que nous demande l'exercice, c'est-à-dire `0` d'ou le flag)._ 
+_:zap: **Méthode 2**: Rechercher un IOC (Indice Of Compromise) dans le dossier AppData de l'utilisateur  
+Puisque nos preuves doivent être intangibles et judicièrement valides alors la méthode élégante est la recherche d'artifact. En se rendant au chemin `001Win10.E01` > `vol3 (NTFS / exFAT (0x07): 104448-103830231)` > `Users` > `John Doe` > `AppData`, nous ne trouvons pas `Tor Browser` ni dans dans `Local`, ni dans `LocalLow` encore moins dans `Roaming`. Nous pouvons donc conclure, qu'il a été installé sans jamais être exécuté sur la machine suspecte. Et donc logiquement, l'absence d'IOC équivaut à la négative de ce que nous demande l'exercice, c'est-à-dire `0` d'ou le flag)._   
 _flag_ :triangular_flag_on_post: = `0`
 
 ![flag tor browser](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/flag%20Tor%20browser.png)
 
 
 
-_:zap: **Méthode 3**: Rechercher un IOC (Indice Of Compromise) dans le fichier .pf (prefetched file)  
-Deux éléments sont à l'origine de l'accélération du démarrage de Windows ou d'un programme par la mise en cache de certaines informations reauises (la prefetcher) et de l'analyse des traces recueillies par le prefetcher (la task scheduler). En conséquence, ils travaillent en synergie: il faut les démarrer/activer tous les deux pour le résultat escompté._
+_:zap: **Méthode 3**: Rechercher un IOC (Indice Of Compromise) dans le fichier .pf (prefetched file)   
+Deux éléments sont à l'origine de l'accélération du démarrage de Windows ou d'un programme par la mise en cache de certaines informations reauises (la prefetcher) et de l'analyse des traces recueillies par le prefetcher (la task scheduler). En conséquence, ils travaillent en synergie: il faut les démarrer/activer tous les deux pour le résultat escompté._  
 
-_Dans notre cas, puisqu'il s'agit de `Tor Browser`, inous recherchons le fichier PF portant son nom dans la liste de l'ensemble des fichiers .pf disponibles sur la machine suspectée de l'une des deux manières suivantes :_  
-_- Soit se rendre à `Results` > `Extracted Content` > `Run Programs` puis clic droit sur n'importe quel fichier `.pf` et enfin `View Source File in Directory`_  
+_Dans notre cas, puisqu'il s'agit de `Tor Browser`, nous recherchons le fichier PF portant son nom dans la liste de l'ensemble des fichiers .pf disponibles sur la machine suspectée de l'une des deux manières suivantes :_   
+_- Soit se rendre à `Results` > `Extracted Content` > `Run Programs` puis clic droit sur un des fichiers `.pf` et enfin `View Source File in Directory`_  
 _- Soit se rendre directement à `001Win10.E01` > `vol3 (NTFS / exFAT (0x07): 104448-103830231)` > `Windows` > `Prefetch`_  
 
 ![prefetched 1](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/prefetch%201.png)
@@ -249,3 +245,41 @@ En ce moment, une seule conclusion : le flag vaut bien 0_
 _flag_ :triangular_flag_on_post: = `0`
 
 ![prefetched 2](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/prefetch%202.png)
+
+
+
+
+
+## :seven: User Email   
+>What is the suspect's email address?  
+
+_Ayant pris l'habitude de traduire l'énoncé pour toi, je me sens malheureusement obligé de continuer ainsi dans l'espoir qu'un jour tu sois auutonome. Bien cher compagnon analyste, nous cherchons l'adresse email du suspect._  
+
+_Susposons que la boîte email a été ouverte sur la machine suspectée que nous sommes entrain de tripoter. Pour se faire, deux choses l'une : soit le malveillant utilise une application soit il utilise in browser. Nous nous intéresserons au dernier cas car c'est le plus courant._   
+
+_:zap: **Méthode 1**: web accounts + web history  
+1- Se rendre à `Results` > `Extracted Content` > `Web Accounts` car si le compte a été consulté in browser, il doit y rester des traces. On découvre qu'il utilise le service `protonmail`   
+![prefetched 2](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/suspect%20email%202.png)
+
+2- Se rendre à `Results` > `Extracted Content` > `Web History`  
+3- Rechercher le mot clé `protomail` et bim bam boum, le flag.  
+_flag_ :triangular_flag_on_post: = `dreammaker82@protonmail.com`  
+
+![prefetched 2](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/suspect%20email%201.png)
+
+
+
+_:zap: **Méthode 2**: generate report > HTML report + web accounts + web history  
+1- Générer le rapport HTML en exploitant la fonctionnalité `Generate Report` de `Autopsy`   
+2- Se rendre à `Web History`  
+3- Rechercher le mot clé `@` en faisant `CRTL`+`F` car nous savons qu'une adresse email contient obligatoirement le caractère @ normal ou obfusqué.  
+
+_flag_ :triangular_flag_on_post: = `dreammaker82@protonmail.com` 
+
+![prefetched 2](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/suspect%20email%204.png)
+
+
+
+
+
+
