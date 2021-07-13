@@ -59,3 +59,6 @@ Compétition DFIR (Digital Forensics & Incident Response) sous forme de CTF (Cap
 
 
 ![Top 5 des pays](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/E24yUAaWUAUNcWX.jfif)
+
+![Badge](https://github.com/nanamou224/CTF-writeup/blob/main/2021%20-%20Africa%20Digital%20Forensics%20CTF/Screenshots/DFIR%20Badge.jfif)
+
